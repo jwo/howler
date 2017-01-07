@@ -1,5 +1,7 @@
 # WAY early
 
+Menu bar notification for The Iron Yard newline API
+
 TODO:
 
 0. Figure out how to set the badge on the app.dock from react
