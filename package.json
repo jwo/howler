@@ -1,0 +1,32 @@
+{
+  "name": "Howler menu bar app",
+  "version": "1.0.0",
+  "description": "example menubar electron app",
+  "dependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "browser-window": "^0.4.0",
+    "css-loader": "^0.26.1",
+    "electron-packager": "^8.4.0",
+    "less": "^2.7.2",
+    "less-loader": "^2.2.3",
+    "menubar": "*",
+    "node-libs-browser": "^2.0.0",
+    "react": "^15.4.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "devDependencies": {
+    "electron": "^1.4.13"
+  },
+  "main": "main.js",
+  "scripts": {
+    "build": "electron-packager . Example --platform=darwin --arch=x64 --version=0.36.0 --icon=Icon.icns",
+    "start": "electron .",
+    "watch": "./node_modules/.bin/webpack-dev-server"
+  }
+}
