@@ -22,12 +22,11 @@ export default class SignIn extends Component {
       baseURL: 'https://online.theironyard.com/api/',
       headers: {'Content-Type': 'application/json'}
     });
-
+    
     instance.post("auth",  {
-      email: this.state.email,
+      email: this.state.username,
       password: this.state.password
-    }
-    )
+    })
     .then( (response) => {
       if (response.data.jwt) {
         this.props.onSignIn(response.data.jwt)
@@ -36,7 +35,6 @@ export default class SignIn extends Component {
       }
     })
     .catch( (e) => alert("Error: " + e))
-
 
   }
   render(){
