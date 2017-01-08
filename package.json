@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "example menubar electron app",
   "dependencies": {
+    "axios": "^0.15.3",
     "babel": "^6.5.2",
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
@@ -16,6 +17,7 @@
     "menubar": "*",
     "node-libs-browser": "^2.0.0",
     "react": "^15.4.1",
+    "react-dom": "^15.4.2",
     "style-loader": "^0.13.1",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"
