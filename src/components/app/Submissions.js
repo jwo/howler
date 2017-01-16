@@ -41,7 +41,7 @@ export default class Submissions extends Component {
       <h6>Submission List - {this.state.totalCount}</h6>
 
       {this.state.submissions.map( (s) => {
-        return <div style={{marginBottom: 10}}>
+        return <div key={s.id} style={{marginBottom: 10}}>
           <strong>{s.student.name}</strong><br/>
           Assignment: {s.assignment.title}
         </div>

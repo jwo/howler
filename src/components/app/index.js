@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom';
 import Submissions from './Submissions'
 import SignIn from './SignIn'
 
-require('../less/main.less');
+// require('../../../less/main.less');
 
-class MyComponent extends React.Component {
+import styles from './../../styles/main.css';
+
+export default class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -37,4 +39,4 @@ class MyComponent extends React.Component {
 
 
 
-ReactDOM.render(React.createElement(MyComponent, {}), document.getElementById('content'));
+// ReactDOM.render(React.createElement(MyComponent, {}), document.getElementById('content'));

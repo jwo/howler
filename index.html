@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Electron-React app</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  </head>
+  <body>
+    <div id="root">...</div>
+  </body>
+
+
+  <script>
+      (function() {
+       const script = document.createElement('script');
+       script.src = process.env.ENV === 'development' ? 'http://localhost:9000/dist/bundle.js' : './dist/bundle.js';
+       document.write(script.outerHTML);
+     }());
+  </script>
+</html>

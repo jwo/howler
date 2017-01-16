@@ -22,7 +22,7 @@ export default class SignIn extends Component {
       baseURL: 'https://online.theironyard.com/api/',
       headers: {'Content-Type': 'application/json'}
     });
-    
+
     instance.post("auth",  {
       email: this.state.username,
       password: this.state.password
