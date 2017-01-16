@@ -2,41 +2,24 @@ import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom';
 import Submissions from './Submissions'
 import SignIn from './SignIn'
-
-// require('../../../less/main.less');
-
 import styles from './../../styles/main.css';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      authToken: ""
-    }
-
-    this.onSignIn = this.onSignIn.bind(this);
-
-  }
-
-  onSignIn(token){
-    this.setState({
-      authToken: token
-    })
   }
 
   render(){
 
+    const { authToken, submissions } = this.props.getState();
+
     return <div>
-      {!this.state.authToken &&
-        <SignIn onSignIn={this.onSignIn} />
+      {!authToken &&
+        <SignIn dispatch={this.props.dispatch}  />
       }
-      {this.state.authToken &&
-        <Submissions authToken={this.state.authToken}/>
+      {authToken &&
+        <Submissions dispatch={this.props.dispatch} submissions={submissions}/>
       }
     </div>;
   }
 }
-
-
-
-// ReactDOM.render(React.createElement(MyComponent, {}), document.getElementById('content'));

@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom';
-import axios from 'axios';
+import * as actions from '../../actions';
 
 export default class SignIn extends Component {
 
@@ -8,7 +8,7 @@ export default class SignIn extends Component {
     super(props)
 
     this.state = {
-      username: "",
+      email: "",
       password: ""
     }
 
@@ -17,31 +17,19 @@ export default class SignIn extends Component {
 
   handleSignIn(event){
     event.preventDefault();
+    const {dispatch} = this.props;
 
-    var instance = axios.create({
-      baseURL: 'https://online.theironyard.com/api/',
-      headers: {'Content-Type': 'application/json'}
-    });
-
-    instance.post("auth",  {
-      email: this.state.username,
+    dispatch(actions.requestAuthenticateCredentials({
+      email: this.state.email,
       password: this.state.password
-    })
-    .then( (response) => {
-      if (response.data.jwt) {
-        this.props.onSignIn(response.data.jwt)
-      } else {
-        alert("Sorry, could not authenticate you")
-      }
-    })
-    .catch( (e) => alert("Error: " + e))
+    }))
 
   }
   render(){
     return <form onSubmit={this.handleSignIn}>
 
-    <label htmlFor="username">Username</label>
-    <input type="text" value={this.state.username} onChange={ (e) => this.setState({username: e.target.value})} />
+    <label htmlFor="email">Email</label>
+    <input type="text" value={this.state.email} onChange={ (e) => this.setState({email: e.target.value})} />
 
     <label htmlFor="password">Password</label>
     <input type="password" value={this.state.password} onChange={ (e) => this.setState({password: e.target.value})} />
@@ -50,8 +38,4 @@ export default class SignIn extends Component {
 
     </form>
   }
-}
-
-SignIn.PropTypes = {
-  onSignIn: PropTypes.func.isRequired
 }
